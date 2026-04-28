@@ -28,7 +28,7 @@ Gerenciar eventos, participantes e inscrições, permitindo CRUD completo, busca
 
 ```bash
 # Clonar o repositório
-git clone <url-do-repositorio>
+git clone https://github.com/pietroabrahamian/diamante2.git
 cd gerenciadorevento
 
 # Executar
