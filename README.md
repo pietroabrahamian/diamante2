@@ -4,6 +4,12 @@ API REST desenvolvida com **Spring Boot 3**, **Spring Data JPA** e banco **H2 em
 
 ---
 
+## 🚹 Participantes
+- Pietro Ferreira Gomes Abrahamian - RM561469
+- Lucca Ramos Mussumecci - RM562027
+- Pedro Peres Benitez - RM561792
+
+
 ## 🎯 Objetivo
 
 Gerenciar eventos, participantes e inscrições, permitindo CRUD completo, buscas com filtros, paginação, ordenação e projections.
