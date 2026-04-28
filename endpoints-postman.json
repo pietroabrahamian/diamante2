@@ -1,0 +1,834 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Gerenciador de Eventos - Diamante 02",
+    "description": "Collection completa para testes da API REST do Projeto Diamante 02 - Java Advanced FIAP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Eventos",
+      "item": [
+        {
+          "name": "Listar eventos (paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos?page=0&size=10&sort=dtaEvento,asc",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"},
+                {"key": "sort", "value": "dtaEvento,asc"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar evento por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar evento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"TechConf 2026\",\n  \"descricao\": \"Conferência de tecnologia e inovação\",\n  \"dtaEvento\": \"2026-08-10\",\n  \"local\": \"São Paulo - SP\",\n  \"capacidadeMax\": 500,\n  \"tipo\": \"Congresso\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"]
+            }
+          }
+        },
+        {
+          "name": "Criar evento 2 - Workshop",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Workshop de Spring Boot\",\n  \"descricao\": \"Aprenda Spring Boot na prática\",\n  \"dtaEvento\": \"2026-09-15\",\n  \"local\": \"Rio de Janeiro - RJ\",\n  \"capacidadeMax\": 30,\n  \"tipo\": \"Workshop\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"]
+            }
+          }
+        },
+        {
+          "name": "Criar evento 3 - Palestra",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Palestra sobre IA\",\n  \"descricao\": \"Tendências de Inteligência Artificial\",\n  \"dtaEvento\": \"2026-07-20\",\n  \"local\": \"Belo Horizonte - MG\",\n  \"capacidadeMax\": 200,\n  \"tipo\": \"Palestra\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar evento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"TechConf 2026 ATUALIZADO\",\n  \"descricao\": \"Conferência atualizada com novos palestrantes\",\n  \"dtaEvento\": \"2026-08-15\",\n  \"local\": \"São Paulo - SP\",\n  \"capacidadeMax\": 600,\n  \"tipo\": \"Congresso\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar evento",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "3"]
+            }
+          }
+        },
+        {
+          "name": "Resumo (Projection)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/resumo?page=0&size=10&sort=dtaEvento",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "resumo"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"},
+                {"key": "sort", "value": "dtaEvento"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por nome",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/busca/nome?nome=Tech&page=0&size=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "busca", "nome"],
+              "query": [
+                {"key": "nome", "value": "Tech"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "5"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por tipo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/busca/tipo?tipo=Workshop&page=0&size=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "busca", "tipo"],
+              "query": [
+                {"key": "tipo", "value": "Workshop"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "5"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por local",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/busca/local?local=São Paulo&page=0&size=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "busca", "local"],
+              "query": [
+                {"key": "local", "value": "São Paulo"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "5"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por período",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/busca/periodo?inicio=2026-07-01&fim=2026-12-31&page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "busca", "periodo"],
+              "query": [
+                {"key": "inicio", "value": "2026-07-01"},
+                {"key": "fim", "value": "2026-12-31"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por capacidade mínima",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/busca/capacidade?minimo=100&page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "busca", "capacidade"],
+              "query": [
+                {"key": "minimo", "value": "100"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Participantes",
+      "item": [
+        {
+          "name": "Listar participantes (paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes?page=0&size=10&sort=nome",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"},
+                {"key": "sort", "value": "nome"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar participante por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar participante 1",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ana Silva\",\n  \"email\": \"ana.silva@email.com\",\n  \"idade\": 28,\n  \"telefone\": \"(11) 91234-5678\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "Criar participante 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Bruno Oliveira\",\n  \"email\": \"bruno.oliveira@email.com\",\n  \"idade\": 34,\n  \"telefone\": \"(21) 98765-4321\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "Criar participante 3",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Carla Santos\",\n  \"email\": \"carla.santos@email.com\",\n  \"idade\": 22,\n  \"telefone\": \"(31) 97654-3210\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar participante",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ana Silva Atualizada\",\n  \"email\": \"ana.silva@email.com\",\n  \"idade\": 29,\n  \"telefone\": \"(11) 91234-5678\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Deletar participante",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/3",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "3"]
+            }
+          }
+        },
+        {
+          "name": "Resumo (Projection)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/resumo?page=0&size=10&sort=nome",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "resumo"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"},
+                {"key": "sort", "value": "nome"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/busca/email?email=ana.silva@email.com",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "busca", "email"],
+              "query": [
+                {"key": "email", "value": "ana.silva@email.com"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por nome",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/busca/nome?nome=Ana&page=0&size=5",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "busca", "nome"],
+              "query": [
+                {"key": "nome", "value": "Ana"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "5"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar por faixa etária",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/busca/idade?min=18&max=35&page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "busca", "idade"],
+              "query": [
+                {"key": "min", "value": "18"},
+                {"key": "max", "value": "35"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Inscrições",
+      "item": [
+        {
+          "name": "Listar inscrições (paginado)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes?page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Buscar inscrição por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar inscrição",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventoId\": 1,\n  \"participanteId\": 1,\n  \"status\": \"CONFIRMADA\",\n  \"observacao\": \"Precisa de nota fiscal\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/inscricoes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes"]
+            }
+          }
+        },
+        {
+          "name": "Criar inscrição 2",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventoId\": 1,\n  \"participanteId\": 2,\n  \"status\": \"PENDENTE\",\n  \"observacao\": \"Aguardando pagamento\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/inscricoes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar inscrição (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventoId\": 1,\n  \"participanteId\": 1,\n  \"status\": \"CONFIRMADA\",\n  \"observacao\": \"Nota fiscal enviada por email\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar status (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/2/status?novoStatus=CONFIRMADA",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "2", "status"],
+              "query": [
+                {"key": "novoStatus", "value": "CONFIRMADA"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Cancelar inscrição (DELETE)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "2"]
+            }
+          }
+        },
+        {
+          "name": "Inscrições por evento",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/busca/evento/1?page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "busca", "evento", "1"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Inscrições por participante",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/busca/participante/1?page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "busca", "participante", "1"],
+              "query": [
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Inscrições por status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/busca/status?status=CONFIRMADA&page=0&size=10",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "busca", "status"],
+              "query": [
+                {"key": "status", "value": "CONFIRMADA"},
+                {"key": "page", "value": "0"},
+                {"key": "size", "value": "10"}
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Testes de Validação (erros esperados)",
+      "item": [
+        {
+          "name": "400 - Evento com data no passado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Evento Passado\",\n  \"dtaEvento\": \"2020-01-01\",\n  \"local\": \"SP\",\n  \"capacidadeMax\": 10,\n  \"tipo\": \"Workshop\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"]
+            }
+          }
+        },
+        {
+          "name": "400 - Evento com tipo inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Evento Teste\",\n  \"dtaEvento\": \"2026-10-01\",\n  \"local\": \"SP\",\n  \"capacidadeMax\": 10,\n  \"tipo\": \"TipoInvalido\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/eventos",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos"]
+            }
+          }
+        },
+        {
+          "name": "400 - Telefone inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Teste\",\n  \"email\": \"teste99@email.com\",\n  \"idade\": 25,\n  \"telefone\": \"123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "400 - Email inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Teste Email\",\n  \"email\": \"emailinvalido\",\n  \"idade\": 25,\n  \"telefone\": \"(11) 91234-5678\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "409 - Email duplicado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Ana Duplicada\",\n  \"email\": \"ana.silva@email.com\",\n  \"idade\": 25,\n  \"telefone\": \"(11) 91111-9999\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/participantes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes"]
+            }
+          }
+        },
+        {
+          "name": "409 - Inscrição duplicada",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventoId\": 1,\n  \"participanteId\": 1,\n  \"status\": \"CONFIRMADA\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/inscricoes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes"]
+            }
+          }
+        },
+        {
+          "name": "400 - Status de inscrição inválido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"eventoId\": 1,\n  \"participanteId\": 2,\n  \"status\": \"INVALIDO\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/inscricoes",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes"]
+            }
+          }
+        },
+        {
+          "name": "404 - Evento não encontrado",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/eventos/9999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["eventos", "9999"]
+            }
+          }
+        },
+        {
+          "name": "404 - Participante não encontrado",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/participantes/9999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["participantes", "9999"]
+            }
+          }
+        },
+        {
+          "name": "404 - Inscrição não encontrada",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/inscricoes/9999",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8080",
+              "path": ["inscricoes", "9999"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
